@@ -1,0 +1,40 @@
+:host ::ng-deep .selector-toggle>a {
+    left              : -40px;
+    border-right      : 0;
+    border-radius     : 50% 0 0 50%;
+    position          : absolute;
+    width             : 40px;
+    height            : 35px;
+    display           : block;
+    cursor            : pointer;
+    text-align        : center;
+    background        : #01a9ac;
+    color             : #fff;
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .2);
+    box-shadow        : 0 1px 4px 0 rgba(0, 0, 0, .2);
+    padding           : 10px 8px;
+
+    i {
+        animation-duration: 5s;
+        -webkit-animation : fa-spin 6s infinite linear;
+        animation         : fa-spin 6s infinite linear;
+        margin-top        : -5px;
+        font-size         : 20px;
+    }
+}
+
+:host ::ng-deep .hr-line-dashed {
+    width: 100%;
+}
+
+.right-sidebar {
+    background-color: unset;
+    border-left     : unset;
+    width: 350px !important;
+    right: -350px;
+    top: 50px;
+    position: fixed;
+    &.sidebar-open{
+        right: 0px;
+    }
+}

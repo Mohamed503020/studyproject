@@ -1,0 +1,23 @@
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left" id="my-modal-title">{{title}}</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <form #nForm="ngForm" [formGroup]="rForm!" (ngSubmit)="rForm?.valid && onSave()" novalidate
+    [ngClass]="{ 'submitted-form': nForm.submitted }">
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" class="form-control" [formControl]="fCtrls!.name">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="onClose()">
+        Close
+      </button>
+      <button type="submit" class="btn btn-primary">Save changes</button>
+    </div>
+  </form>
+</ng-template>

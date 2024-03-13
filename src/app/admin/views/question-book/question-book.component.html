@@ -1,0 +1,93 @@
+<div class="row">
+    <div class="ibox col-12">
+        <div class="ibox-content">
+            <div class="row">
+                <div class="col-6" style="justify-content: flex-end; display: start;">
+                    <button class="btn btn-primary float-right" (click)="onShowAddMaterialStudyPopup()">
+                        <i class="fa fa-plus me-2" aria-hidden="true"></i>
+                        Add </button>
+                </div>
+                <div class="col-6">
+
+                </div>
+            </div>
+            <div class="table-responsive mt-3">
+                <table class="table table-striped table-bordered" matSort>
+                    <thead>
+                        <tr class="table-primary">
+                            <th mat-sort-header="name">Name</th>
+                            <th>Description</th>
+                            <th>Grade</th>
+                            <th>Material study</th>
+                            <th>Release</th>
+                            <th>Created</th>
+                            <th style="width:130px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let item of QuestionBookArr">
+                            <tr>
+                                <td>{{item.name}} </td>
+                                <td>{{item.descirption}} </td>
+                                <td>{{item.studentGrade.name}}</td>
+                                <td>{{item.materialStudy.name}} <small class="ml-2 text-success">{{item.termNumber}}
+                                    </small> </td>
+                                <td>{{item.release}} </td>
+                                <td>{{item.createdAt|date:'dd/MM/yyyy'}} </td>
+                                <td>
+                                    <div class="operations">
+                                        <a href="javaScript:void(0);" (click)="onShowAddMaterialStudyPopup(item.id)">
+                                            <i class="fa fa-pencil" data-toggle="tooltip" data-placement="top"
+                                                data-original-title="Edit"></i>
+                                        </a>
+                                        <a href="javaScript:void(0);" (click)="onDelete(item)">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </ng-container>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 mt-2 text-center" [formGroup]="fCtrls.paggingConfig"
+                style="display: flex; justify-content: space-around;">
+                <pagination [totalItems]="fCtrls.paggingConfig.value.totalItems!" [align]="true"
+                    (pageChanged)="onPageChanged($event)" [formControl]="fCtrls.paggingConfig.controls.currentPage"
+                    pageBtnClass="btn" [itemsPerPage]="fCtrls.paggingConfig.value.itemsPerPage!" previousText="Prev">
+                </pagination>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-right-sidebar #rightSidebar (onFilterEmit)="onSearch()" (onClearFilterEmit)="onClearFilter()">
+    <div class="row" [formGroup]="rForm">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" class="form-control" [formControl]="fCtrls.name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="">Term Number</label>
+                <ng-select [items]="(termNumberArr$ | async)" [formControl]="fCtrls.termNumber!" bindLabel="name"
+                    bindValue="id">
+                </ng-select>
+            </div>
+            <div class="form-group">
+                <label for="">Student Grade </label>
+                <ng-select [items]="(studentGradeArr$ | async)" [formControl]="fCtrls.studentGradeId" bindLabel="name"
+                    bindValue="id">
+                </ng-select>
+            </div>
+            <div class="form-group">
+                <label for=""> Material Study </label>
+                <ng-select [items]="(materialStudyArr$ | async)" [formControl]="fCtrls.materialStudyId" bindLabel="name"
+                    bindValue="id">
+                </ng-select>
+            </div>
+        </div>
+    </div>
+</app-right-sidebar>
+<app-add-question-book-popup #addBookQuestionPopup></app-add-question-book-popup>

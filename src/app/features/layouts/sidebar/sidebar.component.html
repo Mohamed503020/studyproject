@@ -1,0 +1,114 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <img alt="image" class="rounded-circle" src="/assets/img/profile_small.jpg" />
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="block m-t-xs font-bold">admin</span>
+                        <span class="text-muted text-xs block">admin@gmail.com <b class="caret"></b></span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+
+                        <li><a class="dropdown-item" href="javascript:void(0)" (click)="signout()">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    IN+
+                </div>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/admin/dashboard"><i class="fa fa-diamond"></i> <span
+                        class="nav-label">DashBoard</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-users" aria-hidden="true"></i> <span class="nav-label">Material
+                        Study</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level mm-collapse">
+                    <li routerLinkActive="active">
+                        <a routerLink="/admin/material-study"><i class="fa fa-diamond"></i> <span
+                                class="nav-label">Material Study</span></a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/admin/material-studyunit"><i class="fa fa-diamond"></i> <span
+                                class="nav-label">Material Study Unit</span></a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/admin/material-study-lesson"><i class="fa fa-diamond"></i> <span
+                                class="nav-label">Material Study Lesson</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-users" aria-hidden="true"></i> <span class="nav-label">Question</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level mm-collapse">
+                    <li routerLinkActive="active">
+                        <a routerLink="/admin/question-book"><i class="fa fa-diamond"></i> <span class="nav-label">Question
+                                Book</span></a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/admin/question"><i class="fa fa-diamond"></i> <span class="nav-label">Question
+                            </span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-users" aria-hidden="true"></i> <span class="nav-label">Students</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level mm-collapse">
+                  <li routerLinkActive="active">
+                    <a routerLink="/admin/student"><i class="fa fa-diamond"></i> <span class="nav-label">Students
+                        </span></a>
+                </li>
+                  <li routerLinkActive="active">
+                    <a routerLink="/admin/register-user"><i class="fa fa-diamond"></i> <span class="nav-label">Register
+                        </span></a>
+                </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/admin/student-grade"><i class="fa fa-diamond"></i> <span class="nav-label">Student Grade
+                            </span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-users" aria-hidden="true"></i> <span class="nav-label">User</span><span class="fa arrow"></span></a>
+              <ul class="nav nav-second-level mm-collapse">
+                  <li routerLinkActive="active">
+                    <a routerLink="/admin/users"><i class="fa fa-diamond"></i> <span class="nav-label">Users
+                        </span></a>
+                </li>
+                <li routerLinkActive="active">
+                  <a routerLink="/admin/login"><i class="fa fa-diamond"></i> <span class="nav-label">Login
+                      </span></a>
+              </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-users" aria-hidden="true"></i> <span class="nav-label">Quize</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level mm-collapse">
+                <li routerLinkActive="active">
+                    <a routerLink="/admin/quize"><i class="fa fa-diamond"></i> <span class="nav-label">Quize
+                        </span></a>
+                </li>
+                <li routerLinkActive="active">
+                  <a routerLink="/admin/student-quize"><i class="fa fa-diamond"></i> <span class="nav-label"> Student Quize
+                      </span></a>
+              </li>
+            </ul>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-users" aria-hidden="true"></i> <span class="nav-label">Teacher</span><span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level mm-collapse">
+              <li routerLinkActive="active">
+                  <a routerLink="/admin/teacher"><i class="fa fa-diamond"></i> <span class="nav-label">Teacher
+                      </span></a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/admin/teacher-group"><i class="fa fa-diamond"></i> <span class="nav-label">Teacher Group
+                    </span></a>
+            </li>
+          </ul>
+      </li>
+        </ul>
+
+    </div>
+</nav>

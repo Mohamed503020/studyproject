@@ -1,0 +1,36 @@
+<div [id]="'right-sidebar_'+generatedIndex" class="animated right-sidebar"
+    [ngClass]="{'sidebar-open':isShowSidebar == true}" [style.top]="top ? top +'px' : null">
+    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
+        <div class="sidebar-container" style="overflow: hidden; width: auto; height: 100%;">
+            <div class="selector-toggle position-fixed">
+                <a href="javascript:void(0)" (click)="toggleShowSidebar()">
+                    <span #toggleShowSidebarIcon>
+                        <ng-content select="[toggle-show-sidebar-icon]"></ng-content>
+                    </span>
+                    <span *ngIf="!toggleShowSidebarIcon.childNodes.length">
+                        <i class="fa fa-cog"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5 class="text-center">
+                        <span #rightSiebarTitle>
+                            <ng-content select="[right-sidebar-title]"></ng-content>
+                        </span>
+                        <span *ngIf="!rightSiebarTitle.childNodes.length">Filter Records</span>
+                    </h5>
+                </div>
+                <div class="ibox-content">
+                  <ng-content ></ng-content>
+
+                </div>
+                <div class="ibox-footer text-right">
+                    <button type="button" class="btn btn-secondary" (click)="clearFilter()">Clear</button>
+                    <button type="button" class="btn btn-primary ms-2" (click)="filter()">Filter</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

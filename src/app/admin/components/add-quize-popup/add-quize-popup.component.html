@@ -1,0 +1,108 @@
+<div bsModal #addQuizeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left" id="my-modal-title">{{title}}</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="onClose()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <form #nForm="ngForm" [formGroup]="rForm!" (ngSubmit)="rForm?.valid && onSave()" novalidate
+        [ngClass]="{ 'submitted-form': nForm.submitted }">
+        <div class="modal-body">
+          <div class="row">
+
+
+            <div class="col-8 mt-2">
+              <div class="row col-12 border-bottom pb-3">
+                <div class="form-group col-12">
+                  <label for="">name</label>
+                  <input type="text" class="form-control" [formControl]="fCtrls!.name">
+                </div>
+                <div class="form-group col-12">
+                  <label for="">Details</label>
+                  <input type="text" class="form-control" [formControl]="fCtrls!.details">
+                </div>
+                <div class="form-group col-4">
+                  <label for="">Queston Period</label>
+                  <input type="number" class="form-control" [formControl]="fCtrls!.periodPerQuestion">
+                </div>
+                <div class="form-group col-4">
+                  <label for="">Start Date</label>
+                  <input type="date" class="form-control" [formControl]="fCtrls!.startDate">
+                </div>
+                <div class="form-group col-4">
+                  <label for="">End Date</label>
+                  <input type="date" class="form-control" [formControl]="fCtrls!.endDate">
+                </div>
+              </div>
+              <div class="questions__container pe-2" >
+                <div class="mt-2 me-2 question-info__container" *ngFor="let item of selectedQuestionArr let i=index" dir="rtl">
+                  <div>
+                    <h3 class="d-flex flex-start">
+                      <i class="fa-solid fa-book-open"></i>: <span class="text-primary">السؤال / {{i+1}}</span>
+                      <a href="javascript:void(0)" class="remove_question__btn" style="margin-right: auto;"><i class="fa-solid fa-xmark" (click)="removeSlectedQuestionInQuize(item.id)"></i></a>
+                    </h3>
+                    <h4 class="mt-2 question-title"> <span>{{item.name}}</span>      
+                    </h4>
+                  </div>
+                  <div class="border p-1 mt-2" *ngFor="let answer of item.answers" dir="rtl">
+                    <div [class.border-primary]="answer.isCorrect==true">{{answer.value}}</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="row col-4 border-start pt-2">
+              <div class="form-group">
+                <label for="">Term Number</label>
+                <ng-select [items]="(termNumberArr$ | async)" [formControl]="fCtrls?.termNumber!" bindLabel="name"
+                  bindValue="id">
+                </ng-select>
+              </div>
+              <div class="form-group ">
+                <label for="">Student Grade </label>
+                <ng-select [items]="(studentGradeArr$ | async)" [formControl]="fCtrls?.studentGradeId!" bindLabel="name"
+                  bindValue="id">
+                </ng-select>
+              </div>
+              <div class="form-group ">
+                <label for="">Material Study </label>
+                <ng-select [items]="(materialStudyArr$ | async)" [formControl]="fCtrls?.materialStudyId!"
+                  bindLabel="name" bindValue="id">
+                </ng-select>
+              </div>
+              <div class="form-group">
+                <label for="">Unit </label>
+                <ng-select [items]="(materialStudyUnitArr$ | async)" [formControl]="fCtrls!.materialStudyId"
+                  bindLabel="name" bindValue="id">
+                </ng-select>
+              </div>
+              <div class="form-group">
+                <label for="">Lesson </label>
+                <ng-select [items]="materialStudyLessonArr" [formControl]="fCtrls!.materialStudyLessonId"
+                  bindLabel="name" bindValue="id">
+                </ng-select>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm  mb-2" (click)="onSearchQuestions()">Search</button>
+              <div class="quiz-details__container pe-2" >
+                <div class="mt-2 " *ngFor="let item of qestionArr " dir="rtl">
+                  {{item.questionBook.name}}
+                  <span class=" me-1" (click)="addQuestionToQuize(item)">+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="onClose()">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

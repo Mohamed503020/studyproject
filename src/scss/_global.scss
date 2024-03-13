@@ -1,0 +1,100 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import 'ngx-toastr/toastr';
+
+@import "./components/template";
+@import "./components/right-sidebar";
+
+@import "./plugins/_ng-select";
+@import "./plugins/sweet-alert";
+@import "./plugins/ngx-bootstrap";
+
+$color-overlay: rgba(0, 0, 0, 0.7);
+$dialog-position-top: 20%;
+
+//spinner
+.spinner {
+  padding-top: 20% !important;
+}
+
+//global classess
+.form-group.required .col-form-label:after {
+  content: "*";
+  color: red;
+}
+
+//toast notify
+#toast-container .toast {
+  background-image: unset !important;
+}
+
+//custom checkbox
+.custom-control-label::before,
+.custom-control-label::after {
+  top: 0.5px;
+  width: 1rem;
+  height: 1rem;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #1ab394 !important;
+}
+
+//fixes in tamplate
+.navbar-static-side {
+  position: fixed !important;
+  height: 100% !important;
+}
+
+.navbar-default {
+  background-color: #2f4050 !important;
+}
+
+// .dropdown-menu.show{
+//     top:90px !important;
+// }
+
+.page-heading {
+  padding: 0 10px 10px 10px !important;
+}
+
+.tabs-container {
+  width: 100% !important;
+}
+
+select.form-control {
+  height: 38px !important;
+}
+
+.form-control[type="checkbox"] {
+  height: 20px !important;
+}
+
+.form-group .error {
+  color: red !important;
+}
+
+.alert {
+  width: 100%;
+  ul {
+    margin-bottom: 0 !important;
+  }
+}
+
+.back-btn {
+  color: #999c9e;
+  font-size: 18px;
+  padding: 0px 10px;
+}
+
+.pdfBox {
+  display: inline-flex;
+  max-width: 200px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  max-height: 200px;
+}
+
+.imgviewer {
+  min-height: 200px;
+}

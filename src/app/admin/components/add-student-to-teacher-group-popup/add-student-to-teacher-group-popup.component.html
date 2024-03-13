@@ -1,0 +1,72 @@
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left" id="my-modal-title">{{title}}</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="onClose()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="">Students</label>
+
+    <ng-select #selectStudentElem
+                                        (search)="onSearchStudent($event)" (change)="onChangeStudent($event)">
+                                        <ng-option [value]="item" *ngFor="let item of studentsArr">
+                                            <p class="mb-0">
+                                                <span class="mr-2" [ngClass]="{'text-danger':item.isActive == false
+                                                ,'text-success':item.isActive == true}">
+                                                    <i class="fa fa-circle" aria-hidden="true"></i>
+                                                </span>
+                                                <span> {{item.name}} </span>
+                                                <!-- <small class="ml-2">{{item.identifier}}</small> -->
+                                                <span> - {{item.mail}}</span>
+                                                <span class="ml-4"> -{{item.phone}}
+                                                    <!-- <span *ngIf="item.categoryCode != null"> / {{item.categoryCode}}</span>) -->
+                                                </span>
+                                                <span *ngIf="item.gender==1"> - Male</span>
+                                                <span *ngIf="item.gender==2"> - Female</span>
+
+                                                <span class="ml-4">- {{item.studentGrade.name}}
+
+                                              </span>
+                                            </p>
+                                        </ng-option>
+                                    </ng-select>
+</div>
+        <div class="row mt-3">
+          <div class="ibox col-12">
+              <div class="ibox-content">
+                  <div class="table-responsive mt-3">
+                      <table class="table table-striped table-bordered">
+                          <thead>
+                              <tr class="table-primary">
+                                  <th > Name</th>
+                                  <th >Gender</th>
+                                  <th >Student Grade</th>
+                                  <th style="width:130px;"></th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <ng-container  *ngFor="let item of selectedStudentArr">
+                                  <tr>
+                                      <td> {{item.name}} </td>
+                                      <td *ngIf="item.gender==1">Male</td>
+                                      <td *ngIf="item.gender==2">Female</td>
+                                      <td> {{item.studentGrade.name}} </td>
+                                  </tr>
+                              </ng-container>
+
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="onClose()">
+        Close
+      </button>
+      <button type="submit" class="btn btn-primary" (click)="onSave()">Save changes</button>
+    </div>
+</ng-template>

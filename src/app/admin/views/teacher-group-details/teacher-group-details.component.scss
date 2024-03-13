@@ -1,0 +1,32 @@
+/* teacher-group-details.component.scss */
+.card {
+  width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: none;
+
+  .card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+  }
+  
+  .list-group-item {
+    border: none;
+  }
+  
+  .card-footer {
+    background-color: #f8f9fa;
+  }
+}
+
+
+
+thead tr.table-primary th{
+  background-color: #1ab394 !important;
+  color: #ffffff;
+}
+
